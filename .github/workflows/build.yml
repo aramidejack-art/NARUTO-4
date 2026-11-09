@@ -1,0 +1,65 @@
+```yaml
+name: Build ShinobiCraft
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Locate project root
+        id: root
+        run: |
+          if [ -f build.gradle ] || [ -f build.gradle.kts ]; then
+            echo "dir=." >> "$GITHUB_OUTPUT"
+          elif [ -f ShinobiCraft-Forge-1.20.1/build.gradle ]; then
+            echo "dir=ShinobiCraft-Forge-1.20.1" >> "$GITHUB_OUTPUT"
+          else
+            FOUND=$(find . -maxdepth 2 -type f \( -name build.gradle -o -name build.gradle.kts \) | head -n 1)
+            if [ -z "$FOUND" ]; then
+              echo "No Gradle project found"
+              exit 1
+            fi
+            echo "dir=$(dirname "$FOUND")" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          cache: gradle
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: 8.1.1
+
+      - name: Build mod
+        working-directory: ${{ steps.root.outputs.dir }}
+        run: |
+          if [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew build --no-daemon
+          else
+            gradle build --no-daemon
+          fi
+
+      - name: Verify and upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: shinobicraft-jar
+          path: |
+            ${{ steps.root.outputs.dir }}/build/libs/*.jar
+            !${{ steps.root.outputs.dir }}/build/libs/*-sources.jar
+            !${{ steps.root.outputs.dir }}/build/libs/*-slim.jar
+            !${{ steps.root.outputs.dir }}/build/libs/*-javadoc.jar
+          if-no-files-found: error
+```
