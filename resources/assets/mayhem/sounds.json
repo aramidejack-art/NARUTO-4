@@ -1,0 +1,92 @@
+{
+  "whoosh_light": {
+    "sounds": [
+      {
+        "name": "mayhem:whoosh_light",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.whoosh_light"
+  },
+  "whoosh_heavy": {
+    "sounds": [
+      {
+        "name": "mayhem:whoosh_heavy",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.whoosh_heavy"
+  },
+  "hit_light": {
+    "sounds": [
+      {
+        "name": "mayhem:hit_light",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.hit_light"
+  },
+  "barrage_hit": {
+    "sounds": [
+      {
+        "name": "mayhem:barrage_hit",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.barrage_hit"
+  },
+  "hit_heavy": {
+    "sounds": [
+      {
+        "name": "mayhem:hit_heavy",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.hit_heavy"
+  },
+  "boom": {
+    "sounds": [
+      {
+        "name": "mayhem:boom",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.boom"
+  },
+  "flash_step": {
+    "sounds": [
+      {
+        "name": "mayhem:flash_step",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.flash_step"
+  },
+  "charge": {
+    "sounds": [
+      {
+        "name": "mayhem:charge",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.charge"
+  },
+  "parry": {
+    "sounds": [
+      {
+        "name": "mayhem:parry",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.parry"
+  },
+  "impact_frame": {
+    "sounds": [
+      {
+        "name": "mayhem:impact_frame",
+        "stream": false
+      }
+    ],
+    "subtitle": "subtitles.mayhem.impact_frame"
+  }
+}

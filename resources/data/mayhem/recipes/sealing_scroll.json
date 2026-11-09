@@ -1,0 +1,23 @@
+{
+ "type": "minecraft:crafting_shaped",
+ "pattern": [
+  "ISI",
+  "SPS",
+  "ISI"
+ ],
+ "key": {
+  "I": {
+   "item": "minecraft:ink_sac"
+  },
+  "S": {
+   "item": "minecraft:string"
+  },
+  "P": {
+   "item": "minecraft:paper"
+  }
+ },
+ "result": {
+  "item": "mayhem:sealing_scroll",
+  "count": 2
+ }
+}
